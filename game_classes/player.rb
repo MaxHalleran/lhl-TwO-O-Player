@@ -4,6 +4,20 @@ class Player
     @name = name
     @score = 3
     @wins = 0
-    puts "New Player #{name}"
   end
+
+  def won
+    @wins += 1
+    false
+  end
+
+  def lost
+    @score -= 1
+    if @score == 0
+      true
+    else
+      false
+    end
+  end
+
 end
