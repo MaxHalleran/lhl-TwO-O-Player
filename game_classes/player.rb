@@ -13,11 +13,6 @@ class Player
 
   def lost
     @score -= 1
-    if @score == 0
-      true
-    else
-      false
-    end
+    @score == 0
   end
-
 end
