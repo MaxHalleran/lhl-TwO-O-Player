@@ -4,16 +4,11 @@ class Game
   def initialize
     @game_on = true
     @turn_number = 1
-    puts "New Game"
-
-    # Setting up the players
-    puts "What is player 1's name?"
-    p1name = gets.chomp
-    @player1 = Player.new p1name
-    puts "What is player 2's name?"
-    p2name = gets.chomp
-    @player2 = Player.new p2name
-
+    @number_of_players = 1
+    # Ability to turn this into a loop to create multiple players
+    @player1 = Player.new @number_of_players
+    @number_of_players += 1
+    @player2 = Player.new @number_of_players
     @current_player = @player1
   end
 
@@ -28,7 +23,8 @@ class Game
       player_answer = turn.answer(player_answer)
 
       if player_answer
-        lost = @current_player.won
+        @current_player.won
+        lost = false
       else
         lost = @current_player.lost
       end
